@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
+import Icon from './Icon'
 import '../Styles/Weather.css'
-const Weather = () => {
+const Weather = (props) => {
     const api = {
-        key : "aed2a99a259ddfe76f5b1f0aeef0c822",
+        key : "",
         base: "https://api.openweathermap.org/data/2.5/"
     }           
     const [query,setQuery] = useState('');
@@ -52,7 +53,11 @@ const Weather = () => {
                 <div className="temp">
                 {Math.round(weather.main.temp)}°c
                 </div>
-                <div className="weather">{weather.weather[0].main}</div>
+                <div className="icon">
+                    <Icon value = {weather.weather[0].icon} />
+                </div>
+                <div className="weather">
+                {weather.weather[0].main}</div>
             </div>
             </div>
             ): ('')} 
